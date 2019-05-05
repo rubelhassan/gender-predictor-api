@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from predictor import GenderPredictor, names_data
+from predictor import GenderPredictor, trainFeatures, ClassifierType
 
 app = Flask(__name__)
 
@@ -16,8 +16,8 @@ def predict_gender():
 
 
 if __name__ == '__main__':
-    genderPredictor = GenderPredictor(names_data)
+    genderPredictor = GenderPredictor(trainFeatures, ClassifierType.RANDOM_FOREST)
     genderPredictor.trainClassifier()
-    genderPredictor.testAccuracy()
+    genderPredictor.accuracy()
     app.run(debug=True)
 
