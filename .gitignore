@@ -4,5 +4,3 @@
 .cache/
 .pytest_cache/
 .idea/
-
-data/
